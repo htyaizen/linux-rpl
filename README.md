@@ -16,7 +16,7 @@ Linux实现6lowpan堆栈和contiki实现效果相当。请注意，系统集成�
 ##**RPL: IPv6 Routing Protocol for Low-Power and Lossy Networks for Linux**
 
 ### rpl-userspace-tools
-Userspace tools to setup, manage, list and check RPL configurations
+用户空间工具用来设置管理RPL配置
 
 https://github.com/joaopedrotaveira/rpl-userspace-tools
 
@@ -35,13 +35,13 @@ https://github.com/joaopedrotaveira/linux-rpl
 
 ### Setting up root
 ```
-# in root mode, kernel will use iface addr as dodag id
+# root模式下，内核会使用iface地址当做DODAG的ID
 $ sudo ip addr add 2001:aaaa:beef:c0fe::1/64 dev lowpan0
 
-# setup iface to act as dodag root
+# 设置iface为DODAG的root
 $ sudo sysctl -w net.ipv6.conf.lowpan0.rpl_dodag_root=1
 
-# enable rpl on iface
+# 在iface上使能RPL
 $ sudo sysctl -w net.ipv6.conf.lowpan0.rpl_enabled=1
 ```
 
@@ -56,7 +56,7 @@ $ sudo rpl-ctl enable lowpan0
 ```
 
 ### Disable IPv6 Privacy Extensions
-RPL module announces all global IPv6 addresses of RPL enabled iface. It might not be desired to announce 2 or 3 addresses of each node to DAG.
+RPL module announces all global IPv6 addresses of RPL enabled iface. It might not be desired to announce 2 or 3 addresses of each node to DAG.RPL模式通告所有iface使能RPL的IPv6地址，
 
 To disable IPv6 Privacy Extensions:
 ```
